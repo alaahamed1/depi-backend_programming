@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 /**
  * checkFunc - entry function checks if one of 2 int
  * is positive and the other is negative.
@@ -6,14 +8,12 @@
  * Return: return true if one of 2 numbers is positive.
  */
 
-let checkFunc = function (num1, num2) {
-	if (num1 > 0 && num2 < 0) {
-		return true;
-	}
-	else if (num1 < 0 && num2 > 0) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
+const checkFunc = function (num1, num2) {
+  if (num1 > 0 && num2 < 0) {
+    return true;
+  } else if (num1 < 0 && num2 > 0) {
+    return true;
+  } else {
+    return false;
+  }
+};

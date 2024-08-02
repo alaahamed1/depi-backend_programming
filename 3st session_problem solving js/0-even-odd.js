@@ -6,7 +6,7 @@ if (argv) {
     console.log('Even');
   } else {
     console.log('Odd');
-  };
+  }
 } else if (argv === undefined) {
   console.log('No number Available!');
 }
