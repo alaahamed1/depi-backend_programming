@@ -1,0 +1,12 @@
+body {
+  text-align: center;
+  background: linear-gradient(to right, right, green);
+}
+
+h1 {
+  color: #00000071;
+  letter-spacing: 1.8rem;
+  font-size: 4rem;
+  margin: 20px auto;
+  width: 60%;
+}
