@@ -2,7 +2,7 @@
 
 function factorial($num) {
     $x = 1;
-    for ($i = 1; $i <= $num; $i++) {
+    for ($i = $num; $i > 0; $i--) {
         $x *= $i;
     }
     return $x;
