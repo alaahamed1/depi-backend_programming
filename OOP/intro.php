@@ -100,6 +100,8 @@ class AppleDvice {
   var    $color;
   public $owner;
 
+  private $lock;
+
   // public $isFirst = false;
 
   // constants
@@ -124,11 +126,16 @@ class AppleDvice {
   }
 
   public function ChangeSpace($ra, $in, $sp, $co){
-    $this->ram = $ra;
-    $this->inch = $in;
+    $this->ram   = $ra;
+    $this->inch  = $in;
     $this->space = $sp;
     $this->color = $co;
   }
+
+  public function changeLock($lo){
+    $this->lock = sha1($lo);
+  }
+
 }
 $iphone7 = new AppleDvice();
 $iphone7->ChangeSpace("2GB", "5 Inch", "32GB", "gold");
@@ -146,5 +153,10 @@ var_dump($phone);
 // [$this]  -> pseudo variable. (refer to object properties).
 // [self]   -> refer to the constant of the class.
 // [  ::  ] -> scope resolution opetator [paamayim nekudotayim].
+// [  sha1() ] -> 
 
-
+/**
+ * encapsulation
+ */
+$iphone7->changeLock("alaa@123");
+var_dump($iphone7);
