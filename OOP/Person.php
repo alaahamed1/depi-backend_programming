@@ -142,6 +142,8 @@ class Student extends Person
 
 $student1 = new Student("John Doe", "123 Main St", "Computer Science", 3, 4000);
 echo "Student Name: " . $student1->name . "\n";
+echo "pre";
+var_dump($student1);
 
 /**
  * Class `Staff` represents a staff member with a school and pay.
@@ -211,4 +213,6 @@ class Staff extends Person
 		return $this->pay;
 	}
 }
+$staff1 = new Staff("alaa", "egypt", "test", 2000);
+var_dump($staff1);
 ?>

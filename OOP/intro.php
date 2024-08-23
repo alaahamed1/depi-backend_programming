@@ -84,11 +84,67 @@ class Fruit {
 
 
 //   Class Constants
-class Goodbye{
-    const MESSAGE = "Goodbye World!";
+// class Goodbye{
+//     const MESSAGE = "Goodbye World!";
 
-    function bye(){
-        self::MESSAGE;
+//     function bye(){
+//         self::MESSAGE;
+//     }
+// }
+// ECHO Goodbye::MESSAGE . PHP_EOL;
+
+class AppleDvice {
+  public $ram = "1gb";  // default values
+  public $inch;
+  public $space;
+  var    $color;
+  public $owner;
+
+  // public $isFirst = false;
+
+  // constants
+  const MESSAGE = "hiiiiiiii";
+  const OWNERNAME = 5;
+  public function doublePressed(){
+    echo "this feature does not supported by your device";
+  }
+
+  public function setOwnerName($ownerName){
+    if (strlen($ownerName) < self::OWNERNAME){
+      echo "invalid name, less than" . self::OWNERNAME;
+    }else{
+      echo "your name has been set";
     }
+  }
+
+  public function greating($isFirste){
+    if ($isFirste == true){
+      echo self::MESSAGE;
+    }
+  }
+
+  public function ChangeSpace($ra, $in, $sp, $co){
+    $this->ram = $ra;
+    $this->inch = $in;
+    $this->space = $sp;
+    $this->color = $co;
+  }
 }
-ECHO Goodbye::MESSAGE . PHP_EOL;
+$iphone7 = new AppleDvice();
+$iphone7->ChangeSpace("2GB", "5 Inch", "32GB", "gold");
+
+echo "<pre>";
+var_dump($iphone7);
+
+
+$phone = new AppleDvice();
+$phone->doublePressed() . "<br>";
+$phone->setOwnerName("al");
+$phone->greating(true);
+var_dump($phone);
+
+// [$this]  -> pseudo variable. (refer to object properties).
+// [self]   -> refer to the constant of the class.
+// [  ::  ] -> scope resolution opetator [paamayim nekudotayim].
+
+

@@ -4,6 +4,7 @@
 
 class Square {
     private $size;
+    private $position;
 
     function __construct($size = 0){
         if(gettype($size) != "integer"){
@@ -31,19 +32,41 @@ class Square {
         $this->size = sqrt($area);
     }
 
+    public function set_position($position){
+        if (gettype($this->position) != "array"){
+            throw new TypeError ("position must be an array of 2 positive integers");
+        }
+        $this->position = $position;
+    }
+
+    public function get_position(){
+        return $this->position;
+    }
     public function my_print(){
         if ($this->size == 0){
             echo "";
         }
         for ($i = 1; $i <= $this->size; $i++){
             for ($j = 1; $j <= $this->size; $j++){
-                echo "* ";
+                echo "# ";
             }
             echo "\n";
         }
     }
 }
 
-$square = new Square(10);
-echo $square->get_area() . PHP_EOL;
-echo $square->my_print();
+
+$my_square_1 = new Square(3);
+$my_square_1->my_print();
+
+echo ("--");
+
+$my_square_2 = new Square(3, [1, 1]);
+$my_square_2->my_print();
+
+echo ("--");
+
+$my_square_3 = new Square(3, [3, 0]);
+$my_square_3->my_print();
+
+echo ("--");

@@ -71,11 +71,12 @@ class Circle
 	 */
 	function get_area(): float
 	{
-		return pi() * pow($this->radius, 2);
+		return pi() * pow($this->radius, 4);
 	}
 }
 
-$circle = new Circle(1, "red");
+$circle = new Circle(4, "red");
+var_dump($circle);
 print_r($circle);
 
 /**
@@ -84,7 +85,7 @@ print_r($circle);
 class Cyliner extends Circle
 {
 	/** @var float $height Public instance attribute: height */
-	public float $height = 1;
+	public float $height = 10;
 
 	/**
 	 * Constructor method for the `Cyliner` class
@@ -130,5 +131,6 @@ class Cyliner extends Circle
 		return $this->get_area() * $this->height;
 	}
 }
-
+$cyliner = new Cyliner(4, 10, "red");
+var_dump($cyliner);
 ?>
