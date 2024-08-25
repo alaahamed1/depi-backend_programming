@@ -2,5 +2,5 @@
 #!/usr/bin/php
 
 class Rectangle{
-    
+
 }
