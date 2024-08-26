@@ -102,6 +102,8 @@ class AppleDvice {
 
   private $lock;
 
+  public $name;
+
   // public $isFirst = false;
 
   // constants
@@ -136,6 +138,11 @@ class AppleDvice {
     $this->lock = sha1($lo);
   }
 
+  final public function sayHello($n){   // can not rewrite this function in the child.
+    $this->name = $n;
+    echo "welcome to " . $this->name;
+  }
+
 }
 $iphone7 = new AppleDvice();
 $iphone7->ChangeSpace("2GB", "5 Inch", "32GB", "gold");
@@ -154,10 +161,33 @@ var_dump($phone);
 // [self]   -> refer to the constant of the class.
 // [  ::  ] -> scope resolution opetator [paamayim nekudotayim].
 // [  sha1() ] -> 
+// [ final ] -> to function and class (unable to be inherited)
 
 /**
  * encapsulation
  */
 $iphone7->changeLock("alaa@123");
+$iphone7->sayHello("iphone7");
 var_dump($iphone7);
 
+#-----------------------------------------------------------------
+
+/**
+ * inheritance
+ */
+
+ class Sony extends AppleDvice{
+    private $screen;
+    function changeScreen($sc){
+      $this->screen = $sc;
+    }
+  }
+
+  $sony = new Sony();
+  $sony->ChangeSpace("22GB", "55 Inch", "128GB", "black");
+  $sony->changeScreen("OLED");
+  $sony->sayHello("Sony");
+  print_r($sony);
+
+  //-----------------------------------------------------------------
+  
