@@ -189,5 +189,127 @@ var_dump($iphone7);
   $sony->sayHello("Sony");
   print_r($sony);
 
-  //-----------------------------------------------------------------
+  //-----------------------------------------------------------------------
   
+  /**
+   * abstract
+   * can not create inctance from
+   * make to the other classes to inherit prop & methods from
+   * can have abstract methods (you have to use them)
+   * and have NO body
+   */
+
+    abstract class makeCar {
+    public $ram;
+    public function sayHello(){
+      echo "hello";
+    }
+
+    abstract public function make(); // abstract method
+    
+  }
+
+class Tesla extends makeCar {
+  public function make(){
+    echo "I'm making Tesla";
+  }
+}
+  $tesla = new Tesla();
+  $tesla->sayHello();
+  echo '<pre>';
+  print_r($tesla);
+
+  /**
+   * polymorphism
+   * methods without body code
+   * 
+   */
+
+   interface Moblie{
+
+      public function pressHome($n);
+   }
+   class Iphone implements Moblie{
+    public $name;
+    public function pressHome($n){
+      $this->name = $n;
+      echo "exit home button" . $n;
+    }
+   }
+   $iphone = new Iphone();
+   $iphone->pressHome("Iphone");
+    print_r($iphone);
+
+   class Samsung implements Moblie{
+    public $name;
+    public function pressHome($n){
+      $this->name = $n;
+      echo "press home button" . $n;
+    }
+   }
+
+   $samsung = new Samsung();
+   $samsung->pressHome("samsung");
+    print_r($samsung);
+    #--------------------------------------------------
+
+    interface DBConnects{
+
+      public function getUsers();
+      public function getArticals();
+      public function showData();
+
+    }
+
+    class MySql implements DBConnects{
+      public function getUsers(){
+        echo "SELECT * from users";
+      }
+      public function getArticals(){
+        echo "";
+      }
+      public function showData(){
+        echo "";
+      }
+    }
+
+    $row = new MySql();
+    print_r($row);
+    $row->getUsers();
+
+    /**
+     * magic methods:
+     * special name starts with [ __ ].
+     * __construct
+     */
+
+     class Phone {
+        public $name;
+        public $color;
+        public function sayHello(){
+          echo "hello user";
+        }
+     }
+
+     $phone = new Phone();
+     $phone->sayHello();
+     print_r($phone);
+
+     #------------------------------------------------------------------------------
+abstract class Car {
+  public $name;
+  public function __construct($name) {
+    $this->name = $name;
+  }
+  abstract public function intro() : string;
+}
+
+// Child classes
+class Audi extends Car {
+  public function intro() : string {
+    return "Choose German quality! I'm an $this->name!";
+  }
+}
+$audi = new audi("Audi");
+echo $audi->intro();
+echo "<br>";
